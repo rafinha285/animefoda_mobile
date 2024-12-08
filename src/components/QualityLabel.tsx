@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { recentEpisodeComponentStyle } from "../styles/homeStyle.ts";
+import { recentEpisodeComponentStyle } from "./Home/episodes/recentEpisodeComponentStyle.ts";
 import { danger, gray } from "../styles/baseValues.ts";
 import TextFont from "./Text/TextFont.tsx";
 

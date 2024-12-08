@@ -28,3 +28,16 @@ export interface IncomingEpisode{
     seasonid:string;
     seasonname:string;
 }
+export interface EpisodeUser{
+    episode_id:string;
+    dropped_on:number;
+    season_id:string
+    anime_id:string;
+    user_id:string;
+    id:string;
+    date:Date;
+    duration:number;
+    ep_index:number;
+    name:string;
+    watched:boolean;
+}

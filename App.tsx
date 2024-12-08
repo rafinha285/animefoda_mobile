@@ -3,8 +3,7 @@ import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack"
 import GlobalProvider from "./src/GlobalContext.tsx";
 import Home from "./src/screens/Home.tsx";
-import {Text, View} from "react-native";
-import {homeStyle} from "./src/styles/homeStyle.ts";
+import AnimeScreen from "./src/screens/AnimeScreen.tsx";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +20,18 @@ function App(): React.JSX.Element {
                             orientation: 'portrait',
                         }}
                     />
+                    <Stack.Screen
+                        name={'Anime'}
+                        component={AnimeScreen}
+                        options={{
+                            headerShown: false,
+                            orientation: 'portrait',
+                        }}
+                    />
+                    {/*<Stack.Screen*/}
+                    {/*    name={'Watch'}*/}
+                    {/*    component={}*/}
+                    {/*    />*/}
                 </Stack.Navigator>
             </NavigationContainer>
         </GlobalProvider>

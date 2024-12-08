@@ -9,7 +9,7 @@ import {faClock} from "@fortawesome/free-solid-svg-icons";
 import {white} from "../../../styles/baseValues.ts";
 import {getEpTime} from "../../../functions/episodeFunctions.ts";
 import QualityLabel from "../../QualityLabel.tsx";
-import {recentEpisodeComponentStyle} from "../../../styles/homeStyle.ts";
+import {recentEpisodeComponentStyle} from "./recentEpisodeComponentStyle.ts";
 import {IncomingEpisode} from "../../../types/Episode.ts";
 import {Image} from "react-native";
 import FastImage from "react-native-fast-image";

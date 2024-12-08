@@ -4,7 +4,7 @@ import {ipBase} from "../../consts.ts";
 import TextFont from "../Text/TextFont.tsx";
 import {Episode, IncomingEpisode} from "../../types/Episode.ts";
 import RecentEpisodesImg from "./episodes/RecentEpisodeImg";
-import {recentEpisodesStyle} from "../../styles/homeStyle.ts";
+import {recentEpisodesStyle} from "./episodes/recentEpisodeComponentStyle.ts";
 
 const RecentEpisodes:React.FC = () => {
     const [eps,setEps] = useState<IncomingEpisode[]>([]);
