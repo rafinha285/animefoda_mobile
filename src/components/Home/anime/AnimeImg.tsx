@@ -4,6 +4,7 @@ import {Image, View} from "react-native";
 import {PressableView} from "../../PressableView.tsx";
 import {useNavigation} from "@react-navigation/native";
 import {animeComponentStyle} from "./animeComponentStyle.ts";
+import FastImage from "react-native-fast-image";
 
 interface props{
     animee:Anime
@@ -19,12 +20,12 @@ const AnimePoster:React.FC<props>=({animee})=>{
     return(
         <PressableView onPress={onPress}>
             <View style={animeComponentStyle.main}>
-                <Image
+                <FastImage
                     style={animeComponentStyle.img}
                     source={{
                         uri:imageUrl,
                     }}
-                ></Image>
+                ></FastImage>
             </View>
         </PressableView>
     )

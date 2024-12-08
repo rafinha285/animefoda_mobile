@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {ScrollView, Text} from "react-native";
 // import {Header} from "react-native/Libraries/NewAppScreen";
-import Animes from "../components/Home/AnimesScroll.tsx";
+import AnimeScroll from "../components/Home/AnimesScroll.tsx";
 import {homeStyle} from "../styles/homeStyle.ts";
 import RecentEpisodes from "../components/Home/RecentEpisodes.tsx";
 import Header from "../components/Header.tsx";
@@ -17,8 +17,8 @@ const Home = ()=>{
         <ScrollView style={[homeStyle.body]}>
             {/*<Text> aaa </Text>*/}
             <Header></Header>
-            <Animes manga={false}></Animes>
-            <Animes manga={true}></Animes>
+            <AnimeScroll manga={false}></AnimeScroll>
+            {/*<AnimeScroll manga={true}></AnimeScroll>*/}
             <RecentEpisodes/>
         </ScrollView>
     )

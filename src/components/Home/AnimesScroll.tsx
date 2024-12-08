@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useNavigation} from "@react-navigation/native";
-import {ipApi} from "../../consts.ts";
+import {ipBase} from "../../consts.ts";
 import {Anime} from "../../types/Anime.ts";
 import LinearGradient from "react-native-linear-gradient";
 import {body_purple} from "../../styles/baseValues.ts";
@@ -14,18 +14,19 @@ interface props{
     manga:boolean
 }
 // type AnimeRouteProp = RouteProp<RootStackParamList, 'Anime'>;
-const Animes:React.FC<props>=({manga})=>{
+const AnimeScroll:React.FC<props>=({manga})=>{
     const navigation = useNavigation();
     // const route = useRoute<AnimeRouteProp>();
 
     const [aniPosters,setAniPosters] = useState<React.JSX.Element[]>();
     const [mangaPosters,setMangaPosters] = useState<React.JSX.Element[]>();
     useEffect(()=>{
-        fetch(`${ipApi}/ani/lan`).then(res=> {
-            console.log(res.status);
-            return res.json();
+        fetch(`${ipBase}/ani/g/lan`).then(async res=> {
+            // console.log(await res.json());
+            return await res.json();
         })
             .then((data:Anime[])=>{
+                // console.log(data);
                 const posterList = data.map((anime,index:number)=>(
                     <AnimeImg
                         animee={anime}
@@ -60,4 +61,4 @@ const Animes:React.FC<props>=({manga})=>{
         </View>
     </LinearGradient>;
 };
-export default Animes;
+export default AnimeScroll;

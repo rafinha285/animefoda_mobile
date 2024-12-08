@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {useNavigation} from "@react-navigation/native";
-import {cdnUrl, ipApi} from "../../../consts.ts";
+import {cdnUrl, ipBase} from "../../../consts.ts";
 import {PressableView} from "../../PressableView.tsx";
-import {Image, View} from "react-native";
+import {View} from "react-native";
 import TextFont from "../../Text/TextFont.tsx";
 import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
 import {faClock} from "@fortawesome/free-solid-svg-icons";
@@ -11,6 +11,8 @@ import {getEpTime} from "../../../functions/episodeFunctions.ts";
 import QualityLabel from "../../QualityLabel.tsx";
 import {recentEpisodeComponentStyle} from "../../../styles/homeStyle.ts";
 import {IncomingEpisode} from "../../../types/Episode.ts";
+import {Image} from "react-native";
+import FastImage from "react-native-fast-image";
 
 interface Props {
     episode:IncomingEpisode
@@ -27,7 +29,7 @@ const RecentEpisodesImg:React.FC<Props> = ({episode}) => {
             // 	// console.log(data.name);
             // 	setAnimeName(data.name);
             // });
-            await fetch(`${ipApi}/g/sea/name/${episode.animeid}/${episode.seasonid}`).then(res=>res.json()).then(data=> {
+            await fetch(`${ipBase}/g/sea/name/${episode.animeid}/${episode.seasonid}`).then(res=>res.json()).then(data=> {
                 // console.log(data);
                 setSeasonName(data.name);
             });
@@ -45,10 +47,10 @@ const RecentEpisodesImg:React.FC<Props> = ({episode}) => {
     }
     return(
         <PressableView onPress={handlePress} style={recentEpisodeComponentStyle.container}>
-            <Image
+            <FastImage
                 source={{uri:`${cdnUrl}/ep/${episode.animeid}/${episode.seasonid}/${episode.id}/${episode.id}.jpg`}}
                 style={recentEpisodeComponentStyle.img}
-            ></Image>
+            ></FastImage>
             <View style={[recentEpisodeComponentStyle.top,recentEpisodeComponentStyle.topBottom]}>
                 <TextFont>{episode.animename}</TextFont>
                 <TextFont style={{fontSize:12}}>{seasonName}</TextFont>
